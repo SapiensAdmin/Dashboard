@@ -1,0 +1,27 @@
+name: Daily NAV Fetch
+
+on:
+  schedule:
+    - cron: '30 15 * * 1-5'   # 9:00 PM IST (15:30 UTC), Mon-Fri
+  workflow_dispatch:           # allow manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+      - name: Run fetcher
+        run: python scripts/fetch_navs.py
+      - name: Commit updated data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: daily NAV update [skip ci]"
+          file_pattern: 'data/*.json'
