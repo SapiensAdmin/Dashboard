@@ -3701,10 +3701,24 @@
     }
   ],
   "metrics": {
+    "rf_rate_pct": 7.0,
+    "days_elapsed": 1118,
     "current_portfolio_index": 158.5,
     "current_benchmark_index": 150.83,
     "cumulative_return_pct": 58.5,
-    "benchmark_return_pct": 50.83,
+    "benchmark_cumulative_pct": 50.83,
+    "portfolio_annualised_pct": 16.23,
+    "benchmark_annualised_pct": 14.36,
+    "portfolio_volatility_pct": 10.2,
+    "benchmark_volatility_pct": 13.84,
+    "portfolio_sharpe": 0.9,
+    "benchmark_sharpe": 0.53,
+    "portfolio_max_drawdown_pct": -12.84,
+    "benchmark_max_drawdown_pct": -18.82,
+    "drawdown_ratio": 0.68,
+    "jensens_alpha_pct": 4.08,
+    "beta": 0.7,
+    "correlation": 0.95,
     "alpha_pct": 7.67
   }
 }
