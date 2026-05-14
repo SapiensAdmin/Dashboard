@@ -9,7 +9,6 @@ export default defineConfig({
       '@data': path.resolve(__dirname, './data'),
     },
   },
-  assetsInclude: ['**/*.json'],
   build: {
     chunkSizeWarningLimit: 600,
   },
