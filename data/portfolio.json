@@ -1,6 +1,6 @@
 {
   "inception_date": "2023-04-21",
-  "last_updated": "2026-05-13",
+  "last_updated": "2026-05-20",
   "fund_names": {
     "INF109K01S39": "ICICI Pru Regular Savings",
     "INF200K01TZ3": "SBI Multi Asset Allocation",
@@ -3698,6 +3698,31 @@
       "date": "2026-05-13",
       "portfolio": 158.501,
       "benchmark": 150.829
+    },
+    {
+      "date": "2026-05-14",
+      "portfolio": 159.0048,
+      "benchmark": 152.3508
+    },
+    {
+      "date": "2026-05-15",
+      "portfolio": 158.6563,
+      "benchmark": 151.8602
+    },
+    {
+      "date": "2026-05-18",
+      "portfolio": 157.9725,
+      "benchmark": 151.3346
+    },
+    {
+      "date": "2026-05-19",
+      "portfolio": 158.8593,
+      "benchmark": 151.706
+    },
+    {
+      "date": "2026-05-20",
+      "portfolio": 159.0341,
+      "benchmark": 152.1266
     }
   ],
   "metrics": {
