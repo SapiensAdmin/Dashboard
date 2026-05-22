@@ -4,67 +4,26 @@ import Header from './components/Header';
 import MetricCard from './components/MetricCard';
 import PerformanceChart from './components/PerformanceChart';
 
-// Parse strategy.md into sections for rendering
-function parseStrategy(raw) {
-  const lines = raw.split('\n');
-  const sections = [];
-  let current = null;
-  for (const line of lines) {
-    if (line.startsWith('# ')) {
-      // top-level title — skip, we render it separately
-    } else if (line.startsWith('## ')) {
-      if (current) sections.push(current);
-      current = { heading: line.replace('## ', ''), paras: [] };
-    } else if (line.startsWith('---')) {
-      if (current) sections.push(current);
-      current = { heading: null, paras: [] };
-    } else if (line.trim()) {
-      if (!current) current = { heading: null, paras: [] };
-      current.paras.push(line.trim());
-    }
-  }
-  if (current) sections.push(current);
-  return sections;
-}
-
-// Bold text between **...**
-function renderBold(text) {
-  const parts = text.split(/(\*\*[^*]+\*\*)/g);
-  return parts.map((p, i) =>
-    p.startsWith('**') && p.endsWith('**')
-      ? <strong key={i}>{p.slice(2, -2)}</strong>
-      : p
-  );
-}
-
 function StrategySection({ raw }) {
-  const title = raw.split('\n')[0].replace('# ', '');
-  const sections = parseStrategy(raw);
-  const disclaimer = sections.find(s => !s.heading && s.paras.some(p => p.startsWith('*Disclaimer')));
-  const bodySections = sections.filter(s => s !== disclaimer && (s.heading || s.paras.length));
+  const lines = raw.split('\n').map(l => l.trim()).filter(Boolean);
+  const disclaimer = lines.find(l => l.toLowerCase().startsWith('disclaimer'));
+  const body = lines.filter(l => l !== disclaimer);
 
   return (
-    <section className="bg-white rounded-xl border border-line p-8 space-y-6">
-      <h2 className="font-sans font-semibold text-[18px] text-ink m-0">{title}</h2>
-      {bodySections.map((s, i) => (
-        <div key={i} className="space-y-2">
-          {s.heading && (
-            <h3 className="font-sans font-semibold text-[14px] text-ink uppercase tracking-wide m-0">
-              {s.heading}
-            </h3>
-          )}
-          {s.paras.map((p, j) => (
-            <p key={j} className="font-sans text-[14px] text-ink leading-relaxed m-0">
-              {renderBold(p)}
-            </p>
-          ))}
-        </div>
-      ))}
-      {disclaimer && disclaimer.paras.map((p, i) => (
-        <p key={i} className="font-sans text-[11px] text-muted leading-snug border-t border-line pt-4 m-0 italic">
-          {p.replace(/^\*/, '').replace(/\*$/, '')}
+    <section className="bg-white rounded-xl border border-line p-8 space-y-4">
+      <h2 className="font-sans font-semibold text-[16px] text-ink m-0 uppercase tracking-wide">
+        Investment Strategy &amp; Process
+      </h2>
+      {body.map((para, i) => (
+        <p key={i} className="font-sans text-[14px] text-ink leading-relaxed m-0">
+          {para}
         </p>
       ))}
+      {disclaimer && (
+        <p className="font-sans text-[11px] text-muted leading-snug border-t border-line pt-4 m-0 italic">
+          {disclaimer}
+        </p>
+      )}
     </section>
   );
 }
