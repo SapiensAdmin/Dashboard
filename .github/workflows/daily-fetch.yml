@@ -16,16 +16,31 @@ jobs:
         with:
           ref: main
           token: ${{ secrets.GITHUB_TOKEN }}
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install dependencies
+
+      - name: Install Python dependencies
         run: pip install -r scripts/requirements.txt
-      - name: Run fetcher
+
+      - name: Fetch latest NAVs
         run: python scripts/fetch_navs.py
-      - name: Commit updated data
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Commit updated data and build
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: daily NAV update"
-          file_pattern: 'data/*.json'
+          file_pattern: 'data/*.json dist/**'
           branch: main

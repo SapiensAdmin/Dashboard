@@ -15,12 +15,12 @@ function StrategySection({ raw }) {
         Investment Strategy &amp; Process
       </h2>
       {body.map((para, i) => (
-        <p key={i} className="font-sans text-[14px] text-ink leading-relaxed m-0">
+        <p key={i} className="font-sans font-normal text-[13px] text-ink leading-relaxed tracking-normal m-0">
           {para}
         </p>
       ))}
       {disclaimer && (
-        <p className="font-sans text-[11px] text-muted leading-snug border-t border-line pt-4 m-0 italic">
+        <p className="font-sans font-normal text-[11px] text-muted leading-snug border-t border-line pt-4 m-0 italic">
           {disclaimer}
         </p>
       )}
