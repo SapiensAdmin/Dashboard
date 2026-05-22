@@ -13,6 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -23,5 +26,6 @@ jobs:
       - name: Commit updated data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: daily NAV update [skip ci]"
+          commit_message: "chore: daily NAV update"
           file_pattern: 'data/*.json'
+          branch: main
