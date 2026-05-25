@@ -10,17 +10,17 @@ function StrategySection({ raw }) {
   const body = lines.filter(l => l !== disclaimer);
 
   return (
-    <section className="bg-white rounded-xl border border-line p-8 space-y-4">
-      <h2 className="font-sans font-semibold text-[16px] text-ink m-0 uppercase tracking-wide">
+    <section className="bg-white rounded-xl border border-line p-5 md:p-8 space-y-3 md:space-y-4">
+      <h2 className="font-sans font-semibold text-[13px] md:text-[16px] text-ink m-0 uppercase tracking-wide">
         Investment Strategy &amp; Process
       </h2>
       {body.map((para, i) => (
-        <p key={i} className="font-sans font-normal text-[13px] text-ink leading-relaxed tracking-normal m-0">
+        <p key={i} className="font-sans font-normal text-[12px] md:text-[13px] text-ink leading-relaxed tracking-normal m-0">
           {para}
         </p>
       ))}
       {disclaimer && (
-        <p className="font-sans font-normal text-[11px] text-muted leading-snug border-t border-line pt-4 m-0 italic">
+        <p className="font-sans font-normal text-[10px] md:text-[11px] text-muted leading-snug border-t border-line pt-3 md:pt-4 m-0 italic">
           {disclaimer}
         </p>
       )}
@@ -29,7 +29,7 @@ function StrategySection({ raw }) {
 }
 
 function App() {
-  const { series, metrics: m, last_updated, benchmark_name } = portfolioData;
+  const { series, metrics: m, last_updated, benchmark_name, inception_date } = portfolioData;
 
   const fmtPct = (v) => (v >= 0 ? '+' : '') + v.toFixed(2);
   const fmtNum = (v) => v.toFixed(2);
@@ -37,10 +37,10 @@ function App() {
   return (
     <div className="min-h-screen bg-bg">
       <Header lastUpdated={last_updated} />
-      <main className="max-w-7xl mx-auto px-6 py-8 space-y-4">
+      <main className="max-w-7xl mx-auto px-3 md:px-6 py-4 md:py-8 space-y-3 md:space-y-4">
 
         {/* Row 1 — returns & alpha */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
           <MetricCard
             label="Annualized Return (Gross)"
             portfolioValue={fmtPct(m.portfolio_annualised_pct)}
@@ -69,7 +69,7 @@ function App() {
         </div>
 
         {/* Row 2 — risk */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
           <MetricCard
             label="Standard Deviation (ann.)"
             portfolioValue={m.portfolio_std_dev_pct.toFixed(2)}
@@ -89,21 +89,25 @@ function App() {
             portfolioValue={m.beta.toFixed(2)}
             suffix=""
             portfolioTone="neutral"
-            note={`Correlation: ${m.correlation.toFixed(2)}. OLS regression of daily returns vs ${benchmark_name}.`}
+            note={`Correlation: ${m.correlation.toFixed(2)}. OLS regression vs ${benchmark_name}.`}
           />
           <MetricCard
             label="Drawdown Ratio"
             portfolioValue={m.drawdown_ratio.toFixed(2)}
             suffix="×"
             portfolioTone={m.drawdown_ratio <= 1 ? 'positive' : 'negative'}
-            note="Portfolio MDD ÷ Benchmark MDD. Below 1× means shallower drawdown."
+            note="Portfolio MDD ÷ Benchmark MDD. Below 1× = shallower drawdown."
           />
         </div>
 
         {/* Chart */}
-        <PerformanceChart series={series} benchmarkName={benchmark_name} />
+        <PerformanceChart
+          series={series}
+          benchmarkName={benchmark_name}
+          inceptionDate={inception_date}
+        />
 
-        {/* Strategy & disclaimer — editable via content/strategy.md in GitHub */}
+        {/* Strategy & disclaimer */}
         <StrategySection raw={strategyRaw} />
 
       </main>

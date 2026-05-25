@@ -1,13 +1,13 @@
 {
   "inception_date": "2023-04-21",
-  "last_updated": "2026-05-21",
+  "last_updated": "2026-05-22",
   "fund_names": {
     "INF109K01S39": "ICICI Pru Regular Savings",
     "INF200K01TZ3": "SBI Multi Asset Allocation",
     "INF179KA1RW5": "HDFC Small Cap",
     "INF769K01BI1": "Mirae Asset Large & Midcap"
   },
-  "benchmark_name": "S&P BSE 500",
+  "benchmark_name": "BSE 500",
   "series": [
     {
       "date": "2023-04-21",
@@ -3728,28 +3728,33 @@
       "date": "2026-05-21",
       "portfolio": 159.377,
       "benchmark": 152.3028
+    },
+    {
+      "date": "2026-05-22",
+      "portfolio": 159.6303,
+      "benchmark": 152.6592
     }
   ],
   "metrics": {
     "rf_rate_pct": 7.0,
-    "days_elapsed": 1126,
-    "current_portfolio_index": 159.38,
-    "current_benchmark_index": 152.3,
-    "cumulative_return_pct": 59.38,
-    "benchmark_cumulative_pct": 52.3,
-    "portfolio_annualised_pct": 16.31,
-    "benchmark_annualised_pct": 14.61,
-    "portfolio_std_dev_pct": 10.17,
-    "benchmark_std_dev_pct": 13.8,
-    "portfolio_volatility_pct": 10.17,
-    "benchmark_volatility_pct": 13.8,
+    "days_elapsed": 1127,
+    "current_portfolio_index": 159.63,
+    "current_benchmark_index": 152.66,
+    "cumulative_return_pct": 59.63,
+    "benchmark_cumulative_pct": 52.66,
+    "portfolio_annualised_pct": 16.35,
+    "benchmark_annualised_pct": 14.68,
+    "portfolio_std_dev_pct": 10.16,
+    "benchmark_std_dev_pct": 13.79,
+    "portfolio_volatility_pct": 10.16,
+    "benchmark_volatility_pct": 13.79,
     "portfolio_sharpe": 0.92,
-    "benchmark_sharpe": 0.55,
+    "benchmark_sharpe": 0.56,
     "portfolio_max_drawdown_pct": -12.84,
     "benchmark_max_drawdown_pct": -18.82,
     "drawdown_ratio": 0.68,
-    "jensens_alpha_pct": 3.99,
-    "alpha_pct": 7.07,
+    "jensens_alpha_pct": 3.98,
+    "alpha_pct": 6.97,
     "beta": 0.7,
     "correlation": 0.95
   }
