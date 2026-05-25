@@ -1,0 +1,16 @@
+{
+  "inception_date": "2023-04-21",
+  "last_updated": "2026-05-22",
+  "fund_names": {
+    "INF109K01S39": "ICICI Pru Regular Savings",
+    "INF200K01TZ3": "SBI Multi Asset Allocation",
+    "INF179KA1RW5": "HDFC Small Cap",
+    "INF769K01BI1": "Mirae Asset Large & Midcap"
+  },
+  "benchmark_name": "BSE 500",
+  "series": [
+    {
+      "date": "2023-04-21",
+      "portfolio": 100.0,
+      "benchmark": 100.0
+    }]}
