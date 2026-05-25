@@ -13,4 +13,33 @@
       "date": "2023-04-21",
       "portfolio": 100.0,
       "benchmark": 100.0
-    }]}
+    },
+    {
+      "date": "2023-04-24",
+      "portfolio": 100.274,
+      "benchmark": 100.5957
+    }],
+  "metrics": {
+    "rf_rate_pct": 7.0,
+    "days_elapsed": 1127,
+    "current_portfolio_index": 159.63,
+    "current_benchmark_index": 152.66,
+    "cumulative_return_pct": 59.63,
+    "benchmark_cumulative_pct": 52.66,
+    "portfolio_annualised_pct": 16.35,
+    "benchmark_annualised_pct": 14.68,
+    "portfolio_std_dev_pct": 10.16,
+    "benchmark_std_dev_pct": 13.79,
+    "portfolio_volatility_pct": 10.16,
+    "benchmark_volatility_pct": 13.79,
+    "portfolio_sharpe": 0.92,
+    "benchmark_sharpe": 0.56,
+    "portfolio_max_drawdown_pct": -12.84,
+    "benchmark_max_drawdown_pct": -18.82,
+    "drawdown_ratio": 0.68,
+    "jensens_alpha_pct": 3.98,
+    "alpha_pct": 6.97,
+    "beta": 0.7,
+    "correlation": 0.95
+  }
+}
