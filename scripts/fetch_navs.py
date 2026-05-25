@@ -16,7 +16,7 @@ PORTFOLIO_ISINS = {
     "INF769K01BI1": "Mirae Asset Large & Midcap",
 }
 BENCHMARK_ISIN = "INF179KC1GG9"
-BENCHMARK_NAME = "S&P BSE 500"
+BENCHMARK_NAME = "BSE 500"
 
 ALL_ISINS = list(PORTFOLIO_ISINS.keys()) + [BENCHMARK_ISIN]
 
@@ -176,22 +176,19 @@ def _compute_metrics(series):
         "days_elapsed": days_elapsed,
         "current_portfolio_index": round(last["portfolio"], 2),
         "current_benchmark_index": round(last["benchmark"], 2),
-        # Returns
         "cumulative_return_pct": round(p_cum * 100, 2),
         "benchmark_cumulative_pct": round(b_cum * 100, 2),
         "portfolio_annualised_pct": round(p_ann * 100, 2),
         "benchmark_annualised_pct": round(b_ann * 100, 2),
-        # Risk
-        "portfolio_std_dev_pct": round(p_vol * 100, 2),    # annualised std dev = volatility
+        "portfolio_std_dev_pct": round(p_vol * 100, 2),
         "benchmark_std_dev_pct": round(b_vol * 100, 2),
-        "portfolio_volatility_pct": round(p_vol * 100, 2),  # kept for compat
+        "portfolio_volatility_pct": round(p_vol * 100, 2),
         "benchmark_volatility_pct": round(b_vol * 100, 2),
         "portfolio_sharpe": round(p_sharpe, 2),
         "benchmark_sharpe": round(b_sharpe, 2),
         "portfolio_max_drawdown_pct": round(p_mdd * 100, 2),
         "benchmark_max_drawdown_pct": round(b_mdd * 100, 2),
         "drawdown_ratio": round(dd_ratio, 2),
-        # Alpha & factor
         "jensens_alpha_pct": round(jensens_alpha * 100, 2),
         "alpha_pct": round((p_cum - b_cum) * 100, 2),
         "beta": round(beta, 2),
