@@ -18,41 +18,38 @@ export default function MetricCard({
   suffix = '%',
   portfolioTone,
   benchmarkLabel = 'Benchmark',
-  portfolioLabel = 'Portfolio',
 }) {
   const isDual = benchmarkValue !== undefined;
   const pTone = portfolioTone ?? inferTone(portfolioValue);
 
   return (
-    <div className="bg-white rounded-xl p-4 md:p-5 border border-line transition-transform duration-150 hover:-translate-y-0.5 hover:shadow-sm flex flex-col gap-2 md:gap-3">
-      <p className="font-sans font-medium text-[10px] md:text-[11px] text-muted uppercase tracking-wider leading-none">
+    <div className="bg-white rounded-2xl border border-line p-3.5 md:p-5 flex flex-col gap-2.5 md:gap-3 min-w-0 overflow-hidden">
+
+      {/* Label — clamp to 2 lines max, never overflows */}
+      <p className="font-sans font-semibold text-[9px] md:text-[10px] text-muted uppercase tracking-widest leading-tight m-0 line-clamp-2">
         {label}
       </p>
 
-      <div className="flex flex-col gap-1 md:gap-1.5">
-        {/* Portfolio row */}
-        <div className="flex items-baseline justify-between">
-          {isDual && (
-            <span className="font-sans text-[10px] md:text-[11px] text-muted w-16 md:w-20 shrink-0">{portfolioLabel}</span>
-          )}
-          <span className={`font-mono font-semibold text-[18px] md:text-[22px] leading-none ${toneClass[pTone]}`}>
-            {portfolioValue}{suffix}
+      {/* Primary value */}
+      <p className={`font-mono font-semibold text-[20px] md:text-[24px] leading-none m-0 truncate ${toneClass[pTone]}`}>
+        {portfolioValue}{suffix}
+      </p>
+
+      {/* Benchmark comparison */}
+      {isDual && (
+        <div className="flex items-center justify-between gap-1 border-t border-line pt-2 min-w-0">
+          <span className="font-sans text-[9px] text-muted uppercase tracking-wide truncate shrink-0 max-w-[55%]">
+            {benchmarkLabel}
+          </span>
+          <span className="font-mono text-[11px] md:text-[13px] text-muted shrink-0">
+            {benchmarkValue}{suffix}
           </span>
         </div>
+      )}
 
-        {/* Benchmark row */}
-        {isDual && (
-          <div className="flex items-baseline justify-between">
-            <span className="font-sans text-[10px] md:text-[11px] text-muted w-16 md:w-20 shrink-0">{benchmarkLabel}</span>
-            <span className="font-mono text-[13px] md:text-[15px] text-muted leading-none">
-              {benchmarkValue}{suffix}
-            </span>
-          </div>
-        )}
-      </div>
-
-      {note && (
-        <p className="font-sans text-[10px] md:text-[11px] text-muted leading-snug border-t border-line pt-2">
+      {/* Note — single metrics only, desktop-friendly size */}
+      {note && !isDual && (
+        <p className="font-sans text-[9px] text-muted leading-snug border-t border-line pt-2 m-0 line-clamp-2">
           {note}
         </p>
       )}

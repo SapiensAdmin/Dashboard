@@ -10,17 +10,19 @@ function StrategySection({ raw }) {
   const body = lines.filter(l => l !== disclaimer);
 
   return (
-    <section className="bg-white rounded-xl border border-line p-5 md:p-8 space-y-3 md:space-y-4">
-      <h2 className="font-sans font-semibold text-[13px] md:text-[16px] text-ink m-0 uppercase tracking-wide">
+    <section className="bg-white rounded-2xl border border-line px-4 py-5 md:px-8 md:py-7">
+      <h2 className="font-sans font-semibold text-[10px] md:text-[11px] text-muted uppercase tracking-widest m-0 mb-3">
         Investment Strategy &amp; Process
       </h2>
-      {body.map((para, i) => (
-        <p key={i} className="font-sans font-normal text-[12px] md:text-[13px] text-ink leading-relaxed tracking-normal m-0">
-          {para}
-        </p>
-      ))}
+      <div className="space-y-3">
+        {body.map((para, i) => (
+          <p key={i} className="font-sans font-normal text-[12px] md:text-[13px] text-ink leading-relaxed m-0">
+            {para}
+          </p>
+        ))}
+      </div>
       {disclaimer && (
-        <p className="font-sans font-normal text-[10px] md:text-[11px] text-muted leading-snug border-t border-line pt-3 md:pt-4 m-0 italic">
+        <p className="font-sans text-[9px] md:text-[10px] text-muted leading-snug border-t border-line mt-4 pt-4 m-0 italic">
           {disclaimer}
         </p>
       )}
@@ -37,12 +39,12 @@ function App() {
   return (
     <div className="min-h-screen bg-bg">
       <Header lastUpdated={last_updated} />
-      <main className="max-w-7xl mx-auto px-3 md:px-6 py-4 md:py-8 space-y-3 md:space-y-4">
+      <main className="max-w-7xl mx-auto px-3 md:px-6 py-4 md:py-8 space-y-2.5 md:space-y-4">
 
-        {/* Row 1 — returns & alpha */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
+        {/* Row 1 — returns */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
           <MetricCard
-            label="Annualized Return (Gross)"
+            label="Annualised Return"
             portfolioValue={fmtPct(m.portfolio_annualised_pct)}
             benchmarkValue={fmtPct(m.benchmark_annualised_pct)}
             benchmarkLabel={benchmark_name}
@@ -54,10 +56,10 @@ function App() {
             benchmarkLabel={benchmark_name}
           />
           <MetricCard
-            label="Alpha (Annualized)"
+            label="Alpha (Ann.)"
             portfolioValue={fmtPct(m.jensens_alpha_pct)}
             suffix="%"
-            note={`Jensen's α = Rp − [Rf + β·(Rm − Rf)]. Rf = ${m.rf_rate_pct}%`}
+            note={`Jensen's α · Rf = ${m.rf_rate_pct}%`}
           />
           <MetricCard
             label="Sharpe Ratio"
@@ -69,16 +71,16 @@ function App() {
         </div>
 
         {/* Row 2 — risk */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
           <MetricCard
-            label="Standard Deviation (ann.)"
+            label="Std Deviation"
             portfolioValue={m.portfolio_std_dev_pct.toFixed(2)}
             benchmarkValue={m.benchmark_std_dev_pct.toFixed(2)}
             benchmarkLabel={benchmark_name}
             portfolioTone="neutral"
           />
           <MetricCard
-            label="Maximum Drawdown"
+            label="Max Drawdown"
             portfolioValue={fmtPct(m.portfolio_max_drawdown_pct)}
             benchmarkValue={fmtPct(m.benchmark_max_drawdown_pct)}
             benchmarkLabel={benchmark_name}
@@ -89,14 +91,14 @@ function App() {
             portfolioValue={m.beta.toFixed(2)}
             suffix=""
             portfolioTone="neutral"
-            note={`Correlation: ${m.correlation.toFixed(2)}. OLS regression vs ${benchmark_name}.`}
+            note={`Corr ${m.correlation.toFixed(2)} · vs ${benchmark_name}`}
           />
           <MetricCard
             label="Drawdown Ratio"
             portfolioValue={m.drawdown_ratio.toFixed(2)}
             suffix="×"
             portfolioTone={m.drawdown_ratio <= 1 ? 'positive' : 'negative'}
-            note="Portfolio MDD ÷ Benchmark MDD. Below 1× = shallower drawdown."
+            note="Portfolio ÷ Benchmark MDD"
           />
         </div>
 
@@ -107,7 +109,7 @@ function App() {
           inceptionDate={inception_date}
         />
 
-        {/* Strategy & disclaimer */}
+        {/* Strategy */}
         <StrategySection raw={strategyRaw} />
 
       </main>
