@@ -11,18 +11,18 @@ function StrategySection({ raw }) {
 
   return (
     <section className="bg-white rounded-2xl border border-line px-4 py-5 md:px-8 md:py-7">
-      <h2 className="font-sans font-semibold text-[10px] md:text-[11px] text-muted uppercase tracking-widest m-0 mb-3">
+      <h2 className="font-sans font-semibold text-[10px] md:text-[12px] text-muted uppercase tracking-widest m-0 mb-4">
         Investment Strategy &amp; Process
       </h2>
-      <div className="space-y-3">
+      <div className="space-y-4">
         {body.map((para, i) => (
-          <p key={i} className="font-sans font-normal text-[12px] md:text-[13px] text-ink leading-relaxed m-0">
+          <p key={i} className="font-sans font-normal text-[14px] md:text-[15px] text-ink leading-relaxed m-0">
             {para}
           </p>
         ))}
       </div>
       {disclaimer && (
-        <p className="font-sans text-[9px] md:text-[10px] text-muted leading-snug border-t border-line mt-4 pt-4 m-0 italic">
+        <p className="font-sans text-[10px] md:text-[11px] text-muted leading-snug border-t border-line mt-5 pt-4 m-0 italic">
           {disclaimer}
         </p>
       )}
