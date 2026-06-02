@@ -1,6 +1,6 @@
 {
   "inception_date": "2023-04-21",
-  "last_updated": "2026-05-29",
+  "last_updated": "2026-06-01",
   "fund_names": {
     "INF109K01S39": "ICICI Pru Regular Savings",
     "INF200K01TZ3": "SBI Multi Asset Allocation",
@@ -3753,28 +3753,33 @@
       "date": "2026-05-29",
       "portfolio": 159.2885,
       "benchmark": 152.7213
+    },
+    {
+      "date": "2026-06-01",
+      "portfolio": 158.5293,
+      "benchmark": 151.2575
     }
   ],
   "metrics": {
     "rf_rate_pct": 7.0,
-    "days_elapsed": 1134,
-    "current_portfolio_index": 159.29,
-    "current_benchmark_index": 152.72,
-    "cumulative_return_pct": 59.29,
-    "benchmark_cumulative_pct": 52.72,
-    "portfolio_annualised_pct": 16.17,
-    "benchmark_annualised_pct": 14.6,
+    "days_elapsed": 1137,
+    "current_portfolio_index": 158.53,
+    "current_benchmark_index": 151.26,
+    "cumulative_return_pct": 58.53,
+    "benchmark_cumulative_pct": 51.26,
+    "portfolio_annualised_pct": 15.94,
+    "benchmark_annualised_pct": 14.21,
     "portfolio_std_dev_pct": 10.16,
     "benchmark_std_dev_pct": 13.8,
     "portfolio_volatility_pct": 10.16,
     "benchmark_volatility_pct": 13.8,
-    "portfolio_sharpe": 0.9,
-    "benchmark_sharpe": 0.55,
+    "portfolio_sharpe": 0.88,
+    "benchmark_sharpe": 0.52,
     "portfolio_max_drawdown_pct": -12.84,
     "benchmark_max_drawdown_pct": -18.82,
     "drawdown_ratio": 0.68,
-    "jensens_alpha_pct": 3.86,
-    "alpha_pct": 6.57,
+    "jensens_alpha_pct": 3.91,
+    "alpha_pct": 7.27,
     "beta": 0.7,
     "correlation": 0.95
   }
