@@ -1,3 +1,4 @@
+import csv
 import json
 import math
 import os
@@ -23,6 +24,7 @@ ALL_ISINS = list(PORTFOLIO_ISINS.keys()) + [BENCHMARK_ISIN]
 DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "data")
 HISTORY_PATH = os.path.join(DATA_DIR, "history.json")
 PORTFOLIO_PATH = os.path.join(DATA_DIR, "portfolio.json")
+NAVS_CSV_PATH = os.path.join(DATA_DIR, "navs.csv")
 
 AMFI_URL = "https://www.amfiindia.com/spages/NAVAll.txt"
 MFAPI_URL = "https://api.mfapi.in/mf/{scheme_code}"
@@ -253,6 +255,24 @@ def save_portfolio(portfolio_json):
     print(f"  Saved portfolio.json")
 
 
+def save_navs_csv(history):
+    date_nav = {}
+    for isin, entries in history.items():
+        for e in entries:
+            date_nav.setdefault(e["date"], {})[isin] = e["nav"]
+    fund_isins = list(PORTFOLIO_ISINS.keys()) + [BENCHMARK_ISIN]
+    cols = ["Date"] + [PORTFOLIO_ISINS.get(i, BENCHMARK_NAME) for i in fund_isins]
+    with open(NAVS_CSV_PATH, "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=cols)
+        w.writeheader()
+        for date in sorted(date_nav.keys()):
+            row = {"Date": date}
+            for isin in fund_isins:
+                row[PORTFOLIO_ISINS.get(isin, BENCHMARK_NAME)] = date_nav[date].get(isin, "")
+            w.writerow(row)
+    print(f"  Saved navs.csv ({len(date_nav)} rows)")
+
+
 def print_summary(portfolio_json):
     m = portfolio_json["metrics"]
     print("\nStep 5 — Summary")
@@ -278,6 +298,7 @@ def main():
     save_history(history)
     portfolio_json = compute_portfolio(history)
     save_portfolio(portfolio_json)
+    save_navs_csv(history)
     print_summary(portfolio_json)
 
 
