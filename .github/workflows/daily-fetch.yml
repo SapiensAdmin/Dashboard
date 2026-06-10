@@ -38,9 +38,11 @@ jobs:
       - name: Build static site
         run: npm run build
 
-      - name: Commit updated data and build
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore: daily NAV update"
-          file_pattern: 'data/*.json dist/**'
-          branch: main
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/portfolio.json data/history.json dist/
+          git diff --cached --quiet && echo "No changes to commit" && exit 0
+          git commit -m "chore: daily NAV update $(date -u '+%Y-%m-%d')"
+          git push origin main
