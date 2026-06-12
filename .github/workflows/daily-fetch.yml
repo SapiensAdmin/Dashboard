@@ -2,7 +2,7 @@ name: Daily NAV Fetch
 
 on:
   schedule:
-    - cron: '0 18 * * 1-5'    # 11:30 PM IST (18:00 UTC), Mon-Fri
+    - cron: '30 23 * * 1-5'   # 5:00 AM IST (23:30 UTC prev night), Mon-Fri
   workflow_dispatch:           # allow manual trigger
 
 permissions:
