@@ -29,7 +29,7 @@ function StrategySection({ raw }) {
 }
 
 function App() {
-  const { series, metrics: m, last_updated, benchmark_name } = portfolioData;
+  const { series, metrics: m, last_updated, benchmark_name, inception_date } = portfolioData;
 
   const fmtPct = (v) => (v >= 0 ? '+' : '') + v.toFixed(2);
   const fmtNum = (v) => v.toFixed(2);
@@ -106,7 +106,7 @@ function App() {
         </div>
 
         {/* Chart */}
-        <PerformanceChart series={series} benchmarkName={benchmark_name} />
+        <PerformanceChart series={series} benchmarkName={benchmark_name} inceptionDate={inception_date} />
 
         {/* Strategy & disclaimer — editable via content/strategy.md in GitHub */}
         <StrategySection raw={strategyRaw} />

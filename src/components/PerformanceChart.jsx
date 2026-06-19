@@ -36,7 +36,7 @@ export default function PerformanceChart({ series, benchmarkName, inceptionDate 
           Portfolio vs {benchmarkName}
         </h2>
         <p className="font-sans text-[9px] md:text-[10px] text-muted mt-0.5 m-0">
-          Indexed to 100 at inception ({inceptionDate}) · INR terms
+          Indexed to 100 at inception {inceptionDate} · INR terms
         </p>
       </div>
 
