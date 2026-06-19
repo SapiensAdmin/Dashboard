@@ -39,6 +39,11 @@ function App() {
       <Header lastUpdated={last_updated} />
       <main className="max-w-7xl mx-auto px-6 py-8 space-y-4">
 
+        {/* INR label */}
+        <p className="font-sans text-[11px] text-muted uppercase tracking-wider">
+          All figures in INR (Indian Rupee) &nbsp;·&nbsp; Returns are gross of fees
+        </p>
+
         {/* Row 1 — returns & alpha */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <MetricCard
