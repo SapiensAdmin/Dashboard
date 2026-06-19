@@ -41,7 +41,7 @@ function App() {
 
         {/* INR label */}
         <p className="font-sans text-[11px] text-muted uppercase tracking-wider">
-          All figures in INR (Indian Rupee) &nbsp;·&nbsp; Returns are gross of fees
+          All figures in INR since inception on 2nd Feb 2023
         </p>
 
         {/* Row 1 — returns & alpha */}
