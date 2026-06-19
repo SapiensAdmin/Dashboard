@@ -7,7 +7,7 @@
     "INF179KA1RW5": "HDFC Small Cap",
     "INF769K01BI1": "Mirae Asset Large & Midcap"
   },
-  "benchmark_name": "S&P BSE 500",
+  "benchmark_name": "BSE 500",
   "series": [
     {
       "date": "2023-02-02",
