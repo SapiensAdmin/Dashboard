@@ -326,19 +326,20 @@ def save_portfolio(portfolio_json):
 
 
 def save_navs_csv(history):
+    navs_csv_path = os.path.join(DATA_DIR, "navs.csv")
     date_nav = {}
     for isin, entries in history.items():
         for e in entries:
             date_nav.setdefault(e["date"], {})[isin] = e["nav"]
-    fund_isins = list(PORTFOLIO_ISINS.keys()) + [BENCHMARK_ISIN]
-    cols = ["Date"] + [PORTFOLIO_ISINS.get(i, BENCHMARK_NAME) for i in fund_isins]
-    with open(NAVS_CSV_PATH, "w", newline="") as f:
+    fund_isins = list(PORTFOLIO_ISINS.keys())
+    cols = ["Date"] + [PORTFOLIO_ISINS[i] for i in fund_isins]
+    with open(navs_csv_path, "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=cols)
         w.writeheader()
         for date in sorted(date_nav.keys()):
             row = {"Date": date}
             for isin in fund_isins:
-                row[PORTFOLIO_ISINS.get(isin, BENCHMARK_NAME)] = date_nav[date].get(isin, "")
+                row[PORTFOLIO_ISINS[isin]] = date_nav[date].get(isin, "")
             w.writerow(row)
     print(f"  Saved navs.csv ({len(date_nav)} rows)")
 

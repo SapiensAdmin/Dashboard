@@ -1,13 +1,13 @@
 {
   "inception_date": "2023-02-02",
-  "last_updated": "2026-06-18",
+  "last_updated": "2026-06-24",
   "fund_names": {
     "INF109K01S39": "ICICI Pru Regular Savings",
     "INF200K01TZ3": "SBI Multi Asset Allocation",
     "INF179KA1RW5": "HDFC Small Cap",
     "INF769K01BI1": "Mirae Asset Large & Midcap"
   },
-  "benchmark_name": "BSE 500",
+  "benchmark_name": "S&P BSE 500",
   "series": [
     {
       "date": "2023-02-02",
@@ -4073,28 +4073,48 @@
       "date": "2026-06-18",
       "portfolio": 165.9109,
       "benchmark": 157.8902
+    },
+    {
+      "date": "2026-06-19",
+      "portfolio": 166.0568,
+      "benchmark": 157.581
+    },
+    {
+      "date": "2026-06-22",
+      "portfolio": 166.9938,
+      "benchmark": 158.306
+    },
+    {
+      "date": "2026-06-23",
+      "portfolio": 165.9161,
+      "benchmark": 156.6743
+    },
+    {
+      "date": "2026-06-24",
+      "portfolio": 166.6695,
+      "benchmark": 157.5059
     }
   ],
   "metrics": {
     "rf_rate_pct": 7.0,
-    "days_elapsed": 1232,
-    "current_portfolio_index": 165.91,
-    "current_benchmark_index": 157.89,
-    "cumulative_return_pct": 65.91,
-    "benchmark_cumulative_pct": 57.89,
-    "portfolio_annualised_pct": 16.18,
-    "benchmark_annualised_pct": 14.49,
-    "portfolio_std_dev_pct": 9.97,
-    "benchmark_std_dev_pct": 13.66,
-    "portfolio_volatility_pct": 9.97,
-    "benchmark_volatility_pct": 13.66,
-    "portfolio_sharpe": 0.92,
-    "benchmark_sharpe": 0.55,
+    "days_elapsed": 1238,
+    "current_portfolio_index": 166.67,
+    "current_benchmark_index": 157.51,
+    "cumulative_return_pct": 66.67,
+    "benchmark_cumulative_pct": 57.51,
+    "portfolio_annualised_pct": 16.25,
+    "benchmark_annualised_pct": 14.33,
+    "portfolio_std_dev_pct": 9.96,
+    "benchmark_std_dev_pct": 13.65,
+    "portfolio_volatility_pct": 9.96,
+    "benchmark_volatility_pct": 13.65,
+    "portfolio_sharpe": 0.93,
+    "benchmark_sharpe": 0.54,
     "portfolio_max_drawdown_pct": -12.84,
     "benchmark_max_drawdown_pct": -18.79,
     "drawdown_ratio": 0.68,
-    "jensens_alpha_pct": 4.0,
-    "alpha_pct": 8.02,
+    "jensens_alpha_pct": 4.18,
+    "alpha_pct": 9.16,
     "beta": 0.69,
     "correlation": 0.95
   }
