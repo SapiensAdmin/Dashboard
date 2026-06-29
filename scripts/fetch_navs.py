@@ -48,12 +48,19 @@ def fetch_with_retry(url, max_retries=3):
             time.sleep(wait)
 
 
-def resolve_scheme_codes():
-    print("Step 1 — Resolving scheme codes from AMFI...")
+def fetch_amfi_latest():
+    """
+    Fetch NAVAll.txt and return:
+      isin_to_scheme: {ISIN: scheme_code}
+      isin_to_latest: {ISIN: {"date": YYYY-MM-DD, "nav": float}}
+    AMFI publishes the most current NAV (often hours after mfapi.in lags).
+    """
+    print("Step 1 — Resolving scheme codes & latest NAVs from AMFI...")
     resp = fetch_with_retry(AMFI_URL)
     lines = resp.text.splitlines()
 
     isin_to_scheme = {}
+    isin_to_latest = {}
     for line in lines:
         parts = line.split(";")
         if len(parts) < 6:
@@ -61,10 +68,18 @@ def resolve_scheme_codes():
         scheme_code = parts[0].strip()
         isin_div = parts[1].strip()
         isin_growth = parts[2].strip()
-        if isin_div in PORTFOLIO_ISINS:
-            isin_to_scheme[isin_div] = scheme_code
-        if isin_growth in PORTFOLIO_ISINS:
-            isin_to_scheme[isin_growth] = scheme_code
+        nav_str = parts[4].strip()
+        date_str = parts[5].strip()
+
+        for isin in (isin_div, isin_growth):
+            if isin in PORTFOLIO_ISINS:
+                isin_to_scheme[isin] = scheme_code
+                try:
+                    nav_val = float(nav_str)
+                    date_iso = datetime.strptime(date_str, "%d-%b-%Y").strftime("%Y-%m-%d")
+                    isin_to_latest[isin] = {"date": date_iso, "nav": nav_val}
+                except (ValueError, TypeError):
+                    pass
 
     missing = [isin for isin in PORTFOLIO_ISINS if isin not in isin_to_scheme]
     if missing:
@@ -72,8 +87,10 @@ def resolve_scheme_codes():
 
     print(f"  Resolved {len(isin_to_scheme)} ISINs:")
     for isin, code in isin_to_scheme.items():
-        print(f"    {isin} → {code}  ({PORTFOLIO_ISINS[isin]})")
-    return isin_to_scheme
+        latest = isin_to_latest.get(isin, {})
+        print(f"    {isin} → {code}  ({PORTFOLIO_ISINS[isin]})  "
+              f"latest: {latest.get('date', '?')} = {latest.get('nav', '?')}")
+    return isin_to_scheme, isin_to_latest
 
 
 def parse_date(date_str):
@@ -98,7 +115,11 @@ def fetch_nav_history(scheme_code):
     return entries
 
 
-def build_history(isin_to_scheme):
+def build_history(isin_to_scheme, isin_to_latest):
+    """
+    Build history from mfapi.in, then top up with the AMFI latest NAV if it's
+    newer than mfapi.in's last entry (mfapi.in can lag 1-3 days).
+    """
     print("\nStep 2 — Fetching full NAV history per fund...")
     history = {}
     for isin in PORTFOLIO_ISINS:
@@ -106,8 +127,18 @@ def build_history(isin_to_scheme):
         name = PORTFOLIO_ISINS[isin]
         print(f"  Fetching {name} (scheme {scheme_code})...", end=" ", flush=True)
         entries = fetch_nav_history(scheme_code)
+
+        latest = isin_to_latest.get(isin)
+        if latest and entries:
+            mfapi_last = entries[-1]["date"]
+            if latest["date"] > mfapi_last:
+                entries.append({"date": latest["date"], "nav": latest["nav"]})
+                print(f"{len(entries)} pts (mfapi: {mfapi_last}, +AMFI: {latest['date']})")
+            else:
+                print(f"{len(entries)} pts (current: {mfapi_last})")
+        else:
+            print(f"{len(entries)} data points")
         history[isin] = entries
-        print(f"{len(entries)} data points")
     return history
 
 
@@ -364,8 +395,8 @@ def print_summary(portfolio_json):
 
 
 def main():
-    isin_to_scheme = resolve_scheme_codes()
-    history = build_history(isin_to_scheme)
+    isin_to_scheme, isin_to_latest = fetch_amfi_latest()
+    history = build_history(isin_to_scheme, isin_to_latest)
     save_history(history)
 
     print("\nStep 4 — Loading BSE 500 benchmark data...")
