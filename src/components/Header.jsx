@@ -4,13 +4,13 @@ export default function Header({ lastUpdated }) {
   return (
     <header className="w-full bg-white border-b border-line" style={{ minHeight: '80px' }}>
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <img src="/logo.svg" alt="Sapiens Alpha" className="h-12 w-auto" />
-          <div className="flex flex-col">
-            <h1 className="font-sans font-semibold text-[13px] md:text-[17px] text-ink leading-tight m-0 tracking-tight">
+        <div className="flex items-center gap-2 md:gap-3 min-w-0">
+          <img src="/logo.svg" alt="Sapiens Alpha" className="h-9 md:h-12 w-auto shrink-0" />
+          <div className="flex flex-col min-w-0">
+            <h1 className="font-sans font-semibold text-[14px] md:text-[17px] text-ink leading-tight m-0 tracking-tight whitespace-nowrap">
               Fund of Funds
             </h1>
-            <span className="font-sans font-normal text-[10px] md:text-[12px] text-muted leading-tight tracking-wide uppercase">
+            <span className="font-sans font-normal text-[9.5px] md:text-[11px] text-muted leading-tight tracking-wider uppercase whitespace-nowrap">
               Performance Dashboard
             </span>
           </div>
