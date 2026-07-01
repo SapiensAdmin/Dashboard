@@ -24,41 +24,40 @@ export default function MetricCard({
   const pTone = portfolioTone ?? inferTone(portfolioValue);
 
   return (
-    <div className="bg-white rounded-xl p-4 md:p-5 border border-line transition-transform duration-150 hover:-translate-y-0.5 hover:shadow-sm flex flex-col min-w-0">
-      {/* Fixed-height label row so every card's value starts at same y */}
-      <div className="h-8 md:h-9 flex items-start">
-        <p className="font-sans font-medium text-[10px] md:text-[11px] text-muted uppercase tracking-wider leading-tight">
+    <div className="bg-white rounded-xl p-4 md:p-5 border border-line transition-transform duration-150 hover:-translate-y-0.5 hover:shadow-sm flex flex-col overflow-hidden">
+      {/* Fixed-height label row — 2 lines of 11px reserved so all cards align */}
+      <div className="h-9 flex items-start">
+        <p className="font-sans font-medium text-[10.5px] md:text-[11px] text-muted uppercase tracking-wider leading-[1.3]">
           {label}
         </p>
       </div>
 
-      {/* Portfolio value — always at same y across cards */}
-      <div className="flex items-baseline justify-between gap-2 min-w-0 mt-1">
+      {/* Portfolio block */}
+      <div className="mt-1">
         {isDual && (
-          <span className="font-sans text-[10px] md:text-[11px] text-muted shrink-0">
+          <p className="font-sans text-[10px] md:text-[11px] text-muted leading-none mb-1">
             {portfolioLabel}
-          </span>
+          </p>
         )}
-        <span className={`font-mono font-semibold text-[17px] md:text-[22px] leading-none tabular-nums ${toneClass[pTone]}`}>
+        <p className={`font-mono font-semibold text-[20px] md:text-[24px] leading-none tabular-nums ${toneClass[pTone]}`}>
           {portfolioValue}{suffix}
-        </span>
+        </p>
       </div>
 
-      {/* Benchmark value — reserved slot even when absent, so single-value cards align */}
-      <div className="flex items-baseline justify-between gap-2 min-w-0 mt-2 h-5">
+      {/* Benchmark block — reserved slot even when absent so cards align */}
+      <div className="mt-3 min-h-[34px]">
         {isDual && (
           <>
-            <span className="font-sans text-[10px] md:text-[11px] text-muted shrink-0">
+            <p className="font-sans text-[10px] md:text-[11px] text-muted leading-none mb-1">
               {benchmarkLabel}
-            </span>
-            <span className="font-mono text-[13px] md:text-[15px] text-muted leading-none tabular-nums">
+            </p>
+            <p className="font-mono text-[14px] md:text-[16px] text-muted leading-none tabular-nums">
               {benchmarkValue}{suffix}
-            </span>
+            </p>
           </>
         )}
       </div>
 
-      {/* Note — reserved height, only rendered when present */}
       {note && (
         <p className="font-sans text-[10px] md:text-[11px] text-muted leading-snug border-t border-line pt-2 mt-3">
           {note}
