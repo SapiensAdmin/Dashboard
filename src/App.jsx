@@ -47,7 +47,7 @@ function App() {
         {/* Row 1 — returns & alpha */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <MetricCard
-            label="Annualized Return (Gross)"
+            label="Annualized Return"
             portfolioValue={fmtPct(m.portfolio_annualised_pct)}
             benchmarkValue={fmtPct(m.benchmark_annualised_pct)}
             benchmarkLabel={benchmark_name}
@@ -59,7 +59,7 @@ function App() {
             benchmarkLabel={benchmark_name}
           />
           <MetricCard
-            label="Alpha (Annualized)"
+            label="Annualized Alpha"
             portfolioValue={fmtPct(m.jensens_alpha_pct)}
             suffix="%"
             note={`Jensen's α = Rp − [Rf + β·(Rm − Rf)]. Rf = ${m.rf_rate_pct}%`}
@@ -76,14 +76,14 @@ function App() {
         {/* Row 2 — risk */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <MetricCard
-            label="Standard Deviation (ann.)"
+            label="Volatility (Ann.)"
             portfolioValue={m.portfolio_std_dev_pct.toFixed(2)}
             benchmarkValue={m.benchmark_std_dev_pct.toFixed(2)}
             benchmarkLabel={benchmark_name}
             portfolioTone="neutral"
           />
           <MetricCard
-            label="Maximum Drawdown"
+            label="Max Drawdown"
             portfolioValue={fmtPct(m.portfolio_max_drawdown_pct)}
             benchmarkValue={fmtPct(m.benchmark_max_drawdown_pct)}
             benchmarkLabel={benchmark_name}
