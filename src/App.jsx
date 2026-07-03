@@ -10,17 +10,17 @@ function StrategySection({ raw }) {
   const body = lines.filter(l => l !== disclaimer);
 
   return (
-    <section className="bg-white rounded-xl border border-line p-8 space-y-4">
-      <h2 className="font-sans font-semibold text-[16px] text-ink m-0 uppercase tracking-wide">
+    <section className="bg-white rounded-lg border border-line p-5 md:p-6 space-y-4">
+      <p className="font-sans font-medium text-[11px] text-muted uppercase tracking-[0.08em] leading-[1.3] m-0">
         Investment Strategy &amp; Process
-      </h2>
+      </p>
       {body.map((para, i) => (
-        <p key={i} className="font-sans text-[14px] text-ink leading-relaxed m-0">
+        <p key={i} className="font-sans text-[13px] md:text-[14px] text-ink leading-relaxed text-justify m-0">
           {para}
         </p>
       ))}
       {disclaimer && (
-        <p className="font-sans text-[11px] text-muted leading-snug border-t border-line pt-4 m-0 italic">
+        <p className="font-sans text-[11px] text-muted leading-snug text-justify border-t border-line pt-4 m-0">
           {disclaimer}
         </p>
       )}
