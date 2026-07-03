@@ -45,7 +45,7 @@ function App() {
         </p>
 
         {/* Row 1 — returns & alpha */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <MetricCard
             label="Annualized Return"
             portfolioValue={fmtPct(m.portfolio_annualised_pct)}
@@ -62,7 +62,6 @@ function App() {
             label="Annualized Alpha"
             portfolioValue={fmtPct(m.jensens_alpha_pct)}
             suffix="%"
-            note={`Jensen's α = Rp − [Rf + β·(Rm − Rf)]. Rf = ${m.rf_rate_pct}%`}
           />
           <MetricCard
             label="Sharpe Ratio"
@@ -74,7 +73,7 @@ function App() {
         </div>
 
         {/* Row 2 — risk */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <MetricCard
             label="Volatility (Ann.)"
             portfolioValue={m.portfolio_std_dev_pct.toFixed(2)}
@@ -94,14 +93,12 @@ function App() {
             portfolioValue={m.beta.toFixed(2)}
             suffix=""
             portfolioTone="neutral"
-            note={`Correlation: ${m.correlation.toFixed(2)}. OLS regression of daily returns vs ${benchmark_name}.`}
           />
           <MetricCard
             label="Drawdown Ratio"
             portfolioValue={m.drawdown_ratio.toFixed(2)}
             suffix="×"
             portfolioTone={m.drawdown_ratio <= 1 ? 'positive' : 'negative'}
-            note="Portfolio MDD ÷ Benchmark MDD. Below 1× means shallower drawdown."
           />
         </div>
 
