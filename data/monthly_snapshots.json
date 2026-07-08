@@ -1,0 +1,157 @@
+[
+  {
+    "snapshot_month": "2026-02",
+    "window_start": "2023-02-28",
+    "window_end": "2026-02-27",
+    "years": 3.0,
+    "trading_days": 724,
+    "rf_rate_pct": 7.0,
+    "benchmark_name": "S&P BSE 500",
+    "portfolio": {
+      "starting_nav_index": 99.4169,
+      "ending_nav_index": 164.2518,
+      "cumulative_return_pct": 65.22,
+      "trailing_3y_return_pct": 18.22,
+      "volatility_3y_pct": 9.47,
+      "sharpe_ratio_3y": 1.18,
+      "beta_3y": 0.69,
+      "correlation_3y": 0.94,
+      "jensens_alpha_3y_pct": 4.13,
+      "max_drawdown_3y_pct": -12.84
+    },
+    "benchmark": {
+      "starting_nav_index": 97.8819,
+      "ending_nav_index": 157.8813,
+      "cumulative_return_pct": 61.3,
+      "trailing_3y_return_pct": 17.28,
+      "volatility_3y_pct": 12.92,
+      "sharpe_ratio_3y": 0.8,
+      "max_drawdown_3y_pct": -18.79
+    },
+    "taxable": "Yes \u2014 Indian mutual-fund taxation (LTCG 12.5% > \u20b91.25L / STCG 20% for equity; slab-rate for debt-heavy underlying schemes)"
+  },
+  {
+    "snapshot_month": "2026-03",
+    "window_start": "2023-03-31",
+    "window_end": "2026-03-31",
+    "years": 3.0027,
+    "trading_days": 723,
+    "rf_rate_pct": 7.0,
+    "benchmark_name": "S&P BSE 500",
+    "portfolio": {
+      "starting_nav_index": 100.4169,
+      "ending_nav_index": 150.4207,
+      "cumulative_return_pct": 49.8,
+      "trailing_3y_return_pct": 14.41,
+      "volatility_3y_pct": 9.95,
+      "sharpe_ratio_3y": 0.74,
+      "beta_3y": 0.7,
+      "correlation_3y": 0.95,
+      "jensens_alpha_3y_pct": 3.58,
+      "max_drawdown_3y_pct": -12.84
+    },
+    "benchmark": {
+      "starting_nav_index": 98.206,
+      "ending_nav_index": 139.8912,
+      "cumulative_return_pct": 42.45,
+      "trailing_3y_return_pct": 12.5,
+      "volatility_3y_pct": 13.54,
+      "sharpe_ratio_3y": 0.41,
+      "max_drawdown_3y_pct": -18.79
+    },
+    "taxable": "Yes \u2014 Indian mutual-fund taxation (LTCG 12.5% > \u20b91.25L / STCG 20% for equity; slab-rate for debt-heavy underlying schemes)"
+  },
+  {
+    "snapshot_month": "2026-04",
+    "window_start": "2023-05-02",
+    "window_end": "2026-04-30",
+    "years": 2.9973,
+    "trading_days": 724,
+    "rf_rate_pct": 7.0,
+    "benchmark_name": "S&P BSE 500",
+    "portfolio": {
+      "starting_nav_index": 103.99,
+      "ending_nav_index": 161.7858,
+      "cumulative_return_pct": 55.58,
+      "trailing_3y_return_pct": 15.89,
+      "volatility_3y_pct": 10.22,
+      "sharpe_ratio_3y": 0.87,
+      "beta_3y": 0.7,
+      "correlation_3y": 0.95,
+      "jensens_alpha_3y_pct": 3.76,
+      "max_drawdown_3y_pct": -12.84
+    },
+    "benchmark": {
+      "starting_nav_index": 103.2549,
+      "ending_nav_index": 154.3798,
+      "cumulative_return_pct": 49.51,
+      "trailing_3y_return_pct": 14.36,
+      "volatility_3y_pct": 13.89,
+      "sharpe_ratio_3y": 0.53,
+      "max_drawdown_3y_pct": -18.79
+    },
+    "taxable": "Yes \u2014 Indian mutual-fund taxation (LTCG 12.5% > \u20b91.25L / STCG 20% for equity; slab-rate for debt-heavy underlying schemes)"
+  },
+  {
+    "snapshot_month": "2026-05",
+    "window_start": "2023-05-31",
+    "window_end": "2026-05-29",
+    "years": 2.9973,
+    "trading_days": 723,
+    "rf_rate_pct": 7.0,
+    "benchmark_name": "S&P BSE 500",
+    "portfolio": {
+      "starting_nav_index": 107.2051,
+      "ending_nav_index": 162.8671,
+      "cumulative_return_pct": 51.92,
+      "trailing_3y_return_pct": 14.97,
+      "volatility_3y_pct": 10.32,
+      "sharpe_ratio_3y": 0.77,
+      "beta_3y": 0.7,
+      "correlation_3y": 0.95,
+      "jensens_alpha_3y_pct": 3.72,
+      "max_drawdown_3y_pct": -12.84
+    },
+    "benchmark": {
+      "starting_nav_index": 106.5308,
+      "ending_nav_index": 154.0778,
+      "cumulative_return_pct": 44.63,
+      "trailing_3y_return_pct": 13.1,
+      "volatility_3y_pct": 14.05,
+      "sharpe_ratio_3y": 0.43,
+      "max_drawdown_3y_pct": -18.79
+    },
+    "taxable": "Yes \u2014 Indian mutual-fund taxation (LTCG 12.5% > \u20b91.25L / STCG 20% for equity; slab-rate for debt-heavy underlying schemes)"
+  },
+  {
+    "snapshot_month": "2026-06",
+    "window_start": "2023-06-30",
+    "window_end": "2026-06-30",
+    "years": 3.0027,
+    "trading_days": 723,
+    "rf_rate_pct": 7.0,
+    "benchmark_name": "S&P BSE 500",
+    "portfolio": {
+      "starting_nav_index": 111.2678,
+      "ending_nav_index": 165.834,
+      "cumulative_return_pct": 49.04,
+      "trailing_3y_return_pct": 14.21,
+      "volatility_3y_pct": 10.4,
+      "sharpe_ratio_3y": 0.69,
+      "beta_3y": 0.7,
+      "correlation_3y": 0.95,
+      "jensens_alpha_3y_pct": 3.62,
+      "max_drawdown_3y_pct": -12.84
+    },
+    "benchmark": {
+      "starting_nav_index": 111.0492,
+      "ending_nav_index": 156.6832,
+      "cumulative_return_pct": 41.09,
+      "trailing_3y_return_pct": 12.15,
+      "volatility_3y_pct": 14.14,
+      "sharpe_ratio_3y": 0.36,
+      "max_drawdown_3y_pct": -18.79
+    },
+    "taxable": "Yes \u2014 Indian mutual-fund taxation (LTCG 12.5% > \u20b91.25L / STCG 20% for equity; slab-rate for debt-heavy underlying schemes)"
+  }
+]
