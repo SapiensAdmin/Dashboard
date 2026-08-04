@@ -12,8 +12,8 @@ RF_RATE = 0.07  # 7.0% — RBI 10-yr G-Sec (INR risk-free rate)
 INCEPTION_DATE = "2023-02-02"  # Strategy start date (fixed)
 
 PORTFOLIO_ISINS = {
-    "INF109K01S39": "ICICI Pru Regular Savings",
-    "INF200K01TZ3": "SBI Multi Asset Allocation",
+    "INF109K012B0": "ICICI Pru Balanced Advantage",
+    "INF789F01VE6": "UTI Multi Asset Allocation",
     "INF179KA1RW5": "HDFC Small Cap",
     "INF769K01BI1": "Mirae Asset Large & Midcap",
 }
