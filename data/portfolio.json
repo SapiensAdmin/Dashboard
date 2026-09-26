@@ -1,6 +1,6 @@
 {
   "inception_date": "2023-02-02",
-  "last_updated": "2026-09-18",
+  "last_updated": "2026-09-25",
   "fund_names": {
     "INF109K012B0": "ICICI Pru Balanced Advantage",
     "INF789F01VE6": "UTI Multi Asset Allocation",
@@ -4468,28 +4468,53 @@
       "date": "2026-09-18",
       "portfolio": 170.81,
       "benchmark": 155.5965
+    },
+    {
+      "date": "2026-09-21",
+      "portfolio": 170.8949,
+      "benchmark": 156.3053
+    },
+    {
+      "date": "2026-09-22",
+      "portfolio": 170.5798,
+      "benchmark": 155.8007
+    },
+    {
+      "date": "2026-09-23",
+      "portfolio": 171.4068,
+      "benchmark": 156.6678
+    },
+    {
+      "date": "2026-09-24",
+      "portfolio": 168.9642,
+      "benchmark": 154.1371
+    },
+    {
+      "date": "2026-09-25",
+      "portfolio": 169.0957,
+      "benchmark": 154.406
     }
   ],
   "metrics": {
     "rf_rate_pct": 7.0,
-    "days_elapsed": 1324,
-    "current_portfolio_index": 170.81,
-    "current_benchmark_index": 155.6,
-    "cumulative_return_pct": 70.81,
-    "benchmark_cumulative_pct": 55.6,
-    "portfolio_annualised_pct": 15.9,
-    "benchmark_annualised_pct": 12.96,
-    "portfolio_std_dev_pct": 10.67,
+    "days_elapsed": 1331,
+    "current_portfolio_index": 169.1,
+    "current_benchmark_index": 154.41,
+    "cumulative_return_pct": 69.1,
+    "benchmark_cumulative_pct": 54.41,
+    "portfolio_annualised_pct": 15.49,
+    "benchmark_annualised_pct": 12.65,
+    "portfolio_std_dev_pct": 10.68,
     "benchmark_std_dev_pct": 13.4,
-    "portfolio_volatility_pct": 10.67,
+    "portfolio_volatility_pct": 10.68,
     "benchmark_volatility_pct": 13.4,
-    "portfolio_sharpe": 0.83,
-    "benchmark_sharpe": 0.44,
+    "portfolio_sharpe": 0.8,
+    "benchmark_sharpe": 0.42,
     "portfolio_max_drawdown_pct": -14.34,
     "benchmark_max_drawdown_pct": -18.79,
     "drawdown_ratio": 0.76,
-    "jensens_alpha_pct": 4.32,
-    "alpha_pct": 15.21,
+    "jensens_alpha_pct": 4.15,
+    "alpha_pct": 14.69,
     "beta": 0.77,
     "correlation": 0.97
   }
