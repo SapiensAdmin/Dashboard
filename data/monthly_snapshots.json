@@ -184,5 +184,36 @@
       "max_drawdown_3y_pct": -18.79
     },
     "taxable": "Yes \u2014 Indian mutual-fund taxation (LTCG 12.5% > \u20b91.25L / STCG 20% for equity; slab-rate for debt-heavy underlying schemes)"
+  },
+  {
+    "snapshot_month": "2026-08",
+    "window_start": "2023-08-31",
+    "window_end": "2026-08-31",
+    "years": 3.0027,
+    "trading_days": 737,
+    "rf_rate_pct": 7.0,
+    "benchmark_name": "S&P BSE 500",
+    "portfolio": {
+      "starting_nav_index": 118.5053,
+      "ending_nav_index": 174.3043,
+      "cumulative_return_pct": 47.09,
+      "trailing_3y_return_pct": 13.71,
+      "volatility_3y_pct": 11.36,
+      "sharpe_ratio_3y": 0.59,
+      "beta_3y": 0.78,
+      "correlation_3y": 0.97,
+      "jensens_alpha_3y_pct": 3.07,
+      "max_drawdown_3y_pct": -14.34
+    },
+    "benchmark": {
+      "starting_nav_index": 114.6779,
+      "ending_nav_index": 159.8832,
+      "cumulative_return_pct": 39.42,
+      "trailing_3y_return_pct": 11.7,
+      "volatility_3y_pct": 14.21,
+      "sharpe_ratio_3y": 0.33,
+      "max_drawdown_3y_pct": -18.79
+    },
+    "taxable": "Yes \u2014 Indian mutual-fund taxation (LTCG 12.5% > \u20b91.25L / STCG 20% for equity; slab-rate for debt-heavy underlying schemes)"
   }
 ]
