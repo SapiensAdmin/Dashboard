@@ -1,6 +1,6 @@
 {
   "inception_date": "2023-02-02",
-  "last_updated": "2026-10-12",
+  "last_updated": "2026-10-13",
   "fund_names": {
     "INF109K012B0": "ICICI Pru Balanced Advantage",
     "INF789F01VE6": "UTI Multi Asset Allocation",
@@ -4543,28 +4543,33 @@
       "date": "2026-10-12",
       "portfolio": 164.3622,
       "benchmark": 149.0277
+    },
+    {
+      "date": "2026-10-13",
+      "portfolio": 165.8723,
+      "benchmark": 150.8435
     }
   ],
   "metrics": {
     "rf_rate_pct": 7.0,
-    "days_elapsed": 1348,
-    "current_portfolio_index": 164.36,
-    "current_benchmark_index": 149.03,
-    "cumulative_return_pct": 64.36,
-    "benchmark_cumulative_pct": 49.03,
-    "portfolio_annualised_pct": 14.4,
-    "benchmark_annualised_pct": 11.41,
-    "portfolio_std_dev_pct": 10.71,
+    "days_elapsed": 1349,
+    "current_portfolio_index": 165.87,
+    "current_benchmark_index": 150.84,
+    "cumulative_return_pct": 65.87,
+    "benchmark_cumulative_pct": 50.84,
+    "portfolio_annualised_pct": 14.67,
+    "benchmark_annualised_pct": 11.76,
+    "portfolio_std_dev_pct": 10.72,
     "benchmark_std_dev_pct": 13.44,
-    "portfolio_volatility_pct": 10.71,
+    "portfolio_volatility_pct": 10.72,
     "benchmark_volatility_pct": 13.44,
-    "portfolio_sharpe": 0.69,
-    "benchmark_sharpe": 0.33,
+    "portfolio_sharpe": 0.72,
+    "benchmark_sharpe": 0.35,
     "portfolio_max_drawdown_pct": -14.34,
     "benchmark_max_drawdown_pct": -18.79,
     "drawdown_ratio": 0.76,
-    "jensens_alpha_pct": 4.01,
-    "alpha_pct": 15.33,
+    "jensens_alpha_pct": 4.0,
+    "alpha_pct": 15.03,
     "beta": 0.77,
     "correlation": 0.97
   }
